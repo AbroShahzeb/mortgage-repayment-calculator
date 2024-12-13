@@ -1,0 +1,113 @@
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-lime: #d8db2f;
+  --color-lime-15: rgba(216, 219, 47, 0.15);
+}
+
+body {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-weight: 400;
+}
+
+.text-preset-1-mobile {
+  @apply font-bold text-[40px] leading-[auto];
+}
+
+.text-preset-1-desktop {
+  @apply font-bold text-[56px] leading-[125%] tracking-[0%];
+}
+
+.text-preset-2 {
+  @apply text-[24px] font-bold leading-[125%];
+}
+
+.text-preset-3 {
+  @apply text-[18px] font-bold leading-[125%];
+}
+.text-preset-4 {
+  @apply text-[16px] font-medium leading-[150%];
+}
+
+.text-preset-5 {
+  @apply text-[14px] font-medium leading-[150%];
+}
+
+.custom-radio {
+  @apply w-6 h-6 rounded-full border-2 border-slate-700 block relative;
+}
+
+input[type="radio"]:checked + .custom-radio {
+  border-color: var(--color-lime);
+}
+
+input[type="radio"]:checked + .custom-radio::after {
+  content: "";
+  width: 12px;
+  height: 12px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--color-lime);
+  z-index: 20;
+  border-radius: 50%;
+}
+
+.btn-primary {
+  background-color: var(--color-lime);
+}
+
+.btn-primary:hover {
+  background: linear-gradient(
+      0deg,
+      rgba(255, 255, 255, 0.5) 0%,
+      rgba(255, 255, 255, 0.5) 100%
+    ),
+    var(--color-lime);
+}
+
+.radio-group:has(input[type="radio"]:checked) {
+  border-color: var(--color-lime);
+  background: var(--color-lime-15);
+}
+
+.radio-group:hover {
+  border-color: var(--color-lime);
+}
+
+.input-focus:has(input:focus) {
+  border-color: var(--color-lime);
+}
+
+.input-focus:has(input:focus) span {
+  background: var(--color-lime);
+  @apply text-slate-900;
+}
+
+.error-group > div {
+  border-color: #d73328;
+}
+
+.error-group span {
+  background: #d73328;
+  color: #fff;
+}
+
+.error {
+  @apply text-[#D73328] text-preset-5;
+}
+
+.text {
+  background: #9abed540;
+}
+
+@media (min-width: 1024px) {
+  .custom-shadow {
+    box-shadow: 0px 32px 64px 0px rgba(19, 48, 65, 0.1);
+  }
+}
